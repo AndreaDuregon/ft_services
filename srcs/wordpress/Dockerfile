@@ -6,13 +6,13 @@
 #    By: aduregon <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/27 12:43:18 by aduregon          #+#    #+#              #
-#    Updated: 2021/03/27 16:01:39 by aduregon         ###   ########.fr        #
+#    Updated: 2021/03/28 17:50:33 by aduregon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FROM	alpine
 
-EXPOSE	80 443
+EXPOSE	5050
 
 RUN		apk update && apk add nginx
 RUN		apk add php7-gd php7-mysqli php7-zlib php7-curl
