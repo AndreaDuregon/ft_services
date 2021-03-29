@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Dockerfile                                         :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: forsili <marvin@42.fr>                     +#+  +:+       +#+         #
+#    By: simonegiovo <simonegiovo@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/28 17:50:56 by aduregon          #+#    #+#              #
-#    Updated: 2021/03/29 18:15:36 by forsili          ###   ########.fr        #
+#    Updated: 2021/03/30 00:58:46 by simonegiovo      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ RUN		apk add mysql mysql-client
 
 COPY	init_file.sql ./
 
-RUN     mkdir /run/mysqld/
+RUN     mkdir /run/mysqld
 
 COPY    setup.sh ./setup.sh
 RUN		chmod 755 ./setup.sh

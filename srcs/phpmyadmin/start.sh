@@ -1,2 +1,2 @@
-echo START NGINX
+php-fpm7
 /usr/sbin/nginx -g "daemon off;"

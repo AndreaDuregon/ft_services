@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Dockerfile                                         :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: forsili <marvin@42.fr>                     +#+  +:+       +#+         #
+#    By: simonegiovo <simonegiovo@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 10:59:39 by aduregon          #+#    #+#              #
-#    Updated: 2021/03/29 17:54:44 by forsili          ###   ########.fr        #
+#    Updated: 2021/03/30 01:32:40 by simonegiovo      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ RUN		apk add --no-cache openssl
 RUN		apk add --no-cache openssh 
 
 RUN		mkdir /www
+COPY    dureg.png /www
 RUN		mkdir /run/nginx
 RUN		mkdir /etc/nginx/ssl
 COPY	nginx.conf ./etc/nginx/nginx.conf
