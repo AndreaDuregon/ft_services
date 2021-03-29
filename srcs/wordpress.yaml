@@ -1,8 +1,34 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>URL</key>
-	<string>https://42romaluissgruppo.slack.com/files/U01J7DXGC3G/F01T0S68H3K/wordpress.yaml?origin_team=T01J3CWEHSA&amp;origin_channel=D01LMMKRL2H</string>
-</dict>
-</plist>
+apiVersion: v1
+kind: Service
+metadata:
+  name: wordpress-test
+spec:
+  type: LoadBalancer
+  selector:
+    app: wordpress
+  ports:
+  - protocol: TCP
+    port: 5050
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordpress
+  labels:
+    app: wordpress
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wordpress
+  template:
+    metadata:
+      labels:
+        app: wordpress
+    spec:
+      containers:
+      - name: wordpress-test
+        image: wordpress-test
+        ports:
+        - containerPort: 5050
+        imagePullPolicy: Never

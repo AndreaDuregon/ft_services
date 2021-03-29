@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: mysql
 spec:
+  type: ClusterIP
   ports:
   - port: 3306
   selector:
@@ -24,7 +25,7 @@ spec:
         app: mysql
     spec:
       containers:
-      - image: mysql-test
+      - image: mysql
         name: mysql
         env:
           # Use secret in real usage

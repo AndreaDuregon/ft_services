@@ -35,6 +35,6 @@ spec:
         app: nginx
     spec:
       containers:
-      - name: nginx-test
-        image: nginx-test
+      - name: nginx
+        image: nginx
         imagePullPolicy: Never
