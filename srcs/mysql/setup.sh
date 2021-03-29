@@ -1,4 +1,2 @@
-/usr/bin/mysql_install_db --datadir=/var/lib/mysql
-/usr/bin/mysqld --user=root --init_file=/init_file & sleep 3
-mysql wordpress -u root < wordpress.sql
-tail -f /dev/null
+mysql_install_db --user=root --basedir=/usr --datadir=/var/lib/mysql
+mysqld --user=root --skip_networking=0 --init-file=/init_file.sql

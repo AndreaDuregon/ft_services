@@ -2,6 +2,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: nginx
+  annotations:
+    metallb.universe.tf/allow-shared-ip: shared
   labels:
     app: nginx
 spec:
@@ -10,14 +12,19 @@ spec:
     app: nginx
   ports:
   - port: 80
+    protocol: TCP
+    targetPort: 80
     name: http
   - port: 443
+    protocol: TCP
+    targetPort: 443  
     name: https
   - port: 22
+    protocol: TCP
+    targetPort: 22
     name: ssh
 
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -36,5 +43,5 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx
+        image: nginx-img
         imagePullPolicy: Never

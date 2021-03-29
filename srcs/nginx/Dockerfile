@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Dockerfile                                         :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aduregon <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: forsili <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 10:59:39 by aduregon          #+#    #+#              #
-#    Updated: 2021/03/28 17:27:16 by aduregon         ###   ########.fr        #
+#    Updated: 2021/03/29 17:54:44 by forsili          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,21 +14,25 @@ FROM	alpine
 
 EXPOSE	80 443 22
 
-RUN		apk update && apk add nginx
-RUN		apk add openssl openssh --no-cache
+RUN		apk update
+RUN		apk add --no-cache nginx
+RUN		apk add --no-cache openssl
+RUN		apk add --no-cache openssh 
 
 RUN		mkdir /www
 RUN		mkdir /run/nginx
 RUN		mkdir /etc/nginx/ssl
 COPY	nginx.conf ./etc/nginx/nginx.conf
 
-RUN		adduser -D user
-RUN		echo "user:password"|chpasswd
 RUN 	ssh-keygen -A
+RUN		adduser -D pippo
+RUN		echo "pippo:pluto" | chpasswd
 
-RUN		openssl req -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out /etc/nginx/ssl/localhost.pem -keyout /etc/nginx/ssl/localhost.key -subj "/C=IT"	
+RUN		openssl req -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out /etc/nginx/ssl/localhost.pem -keyout /etc/nginx/ssl/localhost.key -subj "/C=IT"
+
+COPY	index.html /www/
 
 COPY    setup.sh ./setup.sh
-RUN		chmod 755 ./setup.sh
-ENTRYPOINT		./setup.sh
+RUN		chmod 777 ./setup.sh
+CMD		./setup.sh
 

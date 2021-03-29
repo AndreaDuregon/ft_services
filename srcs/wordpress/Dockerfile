@@ -3,16 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Dockerfile                                         :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: simonegiovo <simonegiovo@student.42.fr>    +#+  +:+       +#+         #
+#    By: forsili <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/27 12:43:18 by aduregon          #+#    #+#              #
-#    Updated: 2021/03/28 23:32:23 by simonegiovo      ###   ########.fr        #
+#    Updated: 2021/03/29 15:23:11 by forsili          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FROM	alpine
 
 EXPOSE	5050
+
+COPY	start.sh ./
 
 RUN		apk update && apk add nginx
 RUN		apk add php7-gd php7-mysqli php7-zlib php7-curl
@@ -28,13 +30,9 @@ RUN		mkdir /etc/nginx/ssl
 
 COPY	nginx.conf ./etc/nginx/nginx.conf
 
-RUN		openssl req -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out /etc/nginx/ssl/localhost.pem -keyout /etc/nginx/ssl/localhost.key -subj "/C=IT"	
+RUN		openssl req -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out /etc/nginx/ssl/localhost.pem -keyout /etc/nginx/ssl/localhost.key -subj "/C=IT"
 
-RUN		mkdir /etc/nginx/sites-available
-RUN		mkdir /etc/nginx/sites-enabled
-COPY	nginx.conf /etc/nginx/sites-available
-RUN		ln -s /etc/nginx/sites-available/nginx.conf /etc/nginx/sites-enabled/nginx.conf
-RUN		rm -rf /etc/nginx/sites-enabled/default
+CMD		./start.sh
 
 
 

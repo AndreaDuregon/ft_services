@@ -9,4 +9,4 @@ data:
     - name: default
       protocol: layer2
       addresses:
-    - ip: 127.0.0.240
+    - ip: 127.5.5.240-127.5.5.240
