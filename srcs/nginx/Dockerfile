@@ -6,7 +6,7 @@
 #    By: simonegiovo <simonegiovo@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 10:59:39 by aduregon          #+#    #+#              #
-#    Updated: 2021/03/30 01:32:40 by simonegiovo      ###   ########.fr        #
+#    Updated: 2021/04/01 18:37:32 by simonegiovo      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,10 @@ RUN		apk add --no-cache openssl
 RUN		apk add --no-cache openssh 
 
 RUN		mkdir /www
-COPY    dureg.png /www
+COPY    pics/dureg.png /www
+COPY    pics/dmal.png /www
+COPY    pics/sgio.png /www
+COPY    pics/fors.png /www
 RUN		mkdir /run/nginx
 RUN		mkdir /etc/nginx/ssl
 COPY	nginx.conf ./etc/nginx/nginx.conf

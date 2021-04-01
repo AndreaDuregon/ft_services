@@ -1,2 +1,3 @@
+echo "pippo" >> /etc/vsftpd/vsftpd.userlist
 echo	START FTPS
-vsftpd
+/usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf
