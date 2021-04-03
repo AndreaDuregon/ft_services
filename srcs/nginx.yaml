@@ -23,7 +23,6 @@ spec:
     protocol: TCP
     targetPort: 22
     name: ssh
-
 ---
 apiVersion: apps/v1
 kind: Deployment

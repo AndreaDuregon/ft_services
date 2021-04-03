@@ -21,6 +21,7 @@ docker build --tag mysql-img ./srcs/mysql && kubectl apply -f ./srcs/mysql.yaml 
 docker build --tag phpmyadmin-img ./srcs/phpmyadmin && kubectl apply -f ./srcs/phpmyadmin.yaml
 docker build --tag wordpress-img ./srcs/wordpress  && kubectl apply -f ./srcs/wordpress.yaml
 docker build --tag ftps-img ./srcs/ftps  && kubectl apply -f ./srcs/ftps.yaml
+docker build --tag influxdb-img ./srcs/influxdb  && kubectl apply -f ./srcs/influxdb.yaml
 
 # run dahboard
 kubectl proxy
