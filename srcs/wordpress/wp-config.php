@@ -32,11 +32,12 @@ define( 'DB_PASSWORD', 'password' );
 define( 'DB_HOST', 'mysql' );
 
 /** Database Charset to use in creating database tables. */
-define( 'DB_CHARSET', 'utf8' );
+define( 'DB_CHARSET', 'utf8mb4' );
 
 /** The Database Collate type. Don't change this if in doubt. */
-define( 'DB_COLLATE', '' );
+define( 'DB_COLLATE', 'utf8mb4_general_ci' );
 
+// Allow repair
 define('WP_ALLOW_REPAIR', true);
 
 //define( 'FS_METHOD', 'direct' );

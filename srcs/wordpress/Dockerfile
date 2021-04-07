@@ -6,7 +6,7 @@
 #    By: simonegiovo <simonegiovo@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/27 12:43:18 by aduregon          #+#    #+#              #
-#    Updated: 2021/04/01 01:20:12 by simonegiovo      ###   ########.fr        #
+#    Updated: 2021/04/05 15:53:46 by simonegiovo      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ RUN		apk add wget
 COPY	wordpress /www/
 COPY	wp-config.php /www/
 
-RUN		chmod -R 755 var/www/*
+RUN		chmod -R 777 var/www/*
 RUN		mkdir /run/nginx
 
 COPY	nginx.conf ./etc/nginx/nginx.conf

@@ -1,2 +1,2 @@
 mysql_install_db --user=root --basedir=/usr --datadir=/var/lib/mysql
-mysqld --user=root --skip_networking=0 --init-file=/init_file.sql
+mysqld --user=root --skip_networking=0 --bind-address=0.0.0.0 --init-file=/init_file.sql
