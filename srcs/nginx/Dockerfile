@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Dockerfile                                         :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sgiovo <sgiovo@student.42.fr>              +#+  +:+       +#+         #
+#    By: aduregon <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 10:59:39 by aduregon          #+#    #+#              #
-#    Updated: 2021/04/03 16:28:22 by sgiovo           ###   ########.fr        #
+#    Updated: 2021/04/07 13:20:45 by aduregon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,8 @@ RUN		mkdir /etc/nginx/ssl
 COPY	nginx.conf ./etc/nginx/nginx.conf
 
 RUN 	ssh-keygen -A
-#RUN		adduser -D paperino
-#RUN		echo "paperino:pluto" | chpasswd
+RUN		adduser -D paperino
+RUN		echo "paperino:pluto" | chpasswd
 
 RUN		openssl req -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out /etc/nginx/ssl/localhost.pem -keyout /etc/nginx/ssl/localhost.key -subj "/C=IT"
 

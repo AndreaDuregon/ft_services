@@ -7,10 +7,13 @@ RUN apk add libc6-compat
 
 
 
-RUN cd opt/
-RUN wget https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana-3.1.1-1470047149.linux-x64.tar.gz
-RUN tar -zxvf grafana-3.1.1-1470047149.linux-x64.tar.gz
-RUN rm grafana-3.1.1-1470047149.linux-x64.tar.gz
+RUN wget https://dl.grafana.com/oss/release/grafana-7.5.3.linux-amd64.tar.gz
+RUN tar -zxvf grafana-7.5.3.linux-amd64.tar.gz
+RUN rm grafana-7.5.3.linux-amd64.tar.gz
+COPY ./config.yaml ./grafana-7.5.3/conf/provisioning/datasources/
+RUN	mkdir /etc/dashboards
+COPY dashboards/ /etc/dashboards/
 COPY setup.sh ./setup.sh
 RUN	chmod 777 ./setup.sh
+COPY provisioning-config.yaml /grafana-7.5.3/conf/provisioning/dashboards
 CMD ./setup.sh

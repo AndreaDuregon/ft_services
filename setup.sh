@@ -28,7 +28,6 @@ kubectl -n kubernetes-dashboard get secret $(kubectl -n kubernetes-dashboard get
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.5/manifests/namespace.yaml
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.5/manifests/metallb.yaml
 kubectl apply -f ./srcs/loader.yaml
-#kubectl apply -f ./srcs/kustomization.yaml
 docker build --tag nginx-img ./srcs/nginx && kubectl apply -f ./srcs/nginx.yaml
 docker build --tag mysql-img ./srcs/mysql && kubectl apply -f ./srcs/mysql.yaml 
 docker build --tag phpmyadmin-img ./srcs/phpmyadmin && kubectl apply -f ./srcs/phpmyadmin.yaml

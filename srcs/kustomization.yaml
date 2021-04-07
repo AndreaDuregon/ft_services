@@ -1,7 +1,0 @@
-apiVersion: v1
-secretGenerator:
-- name: mysql-pass
-  literals:
-  - password=password
-resources:
-  - mysql.yaml

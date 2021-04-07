@@ -1,2 +1,2 @@
-cd grafana-3.1.1-1470047149/bin/
+cd grafana-7.5.3/bin/ 
 ./grafana-server
