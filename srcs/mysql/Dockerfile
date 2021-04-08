@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Dockerfile                                         :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: simonegiovo <simonegiovo@student.42.fr>    +#+  +:+       +#+         #
+#    By: aduregon <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/28 17:50:56 by aduregon          #+#    #+#              #
-#    Updated: 2021/03/30 00:58:46 by simonegiovo      ###   ########.fr        #
+#    Updated: 2021/04/08 15:28:39 by aduregon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ EXPOSE	3306
 RUN		apk add --update
 RUN		apk add mysql mysql-client
 
-COPY	init_file.sql ./
+COPY	wordpress.sql ./
 
 RUN     mkdir /run/mysqld
 
