@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Dockerfile                                         :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sgiovo <sgiovo@student.42.fr>              +#+  +:+       +#+         #
+#    By: aduregon <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/28 17:50:56 by aduregon          #+#    #+#              #
-#    Updated: 2021/04/09 12:47:40 by sgiovo           ###   ########.fr        #
+#    Updated: 2021/04/09 14:43:57 by aduregon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,6 @@ EXPOSE	3306
 
 RUN		apk add --update
 RUN		apk add mysql mysql-client
-RUN		apk add openrc
 
 COPY	wordpress.sql my.cnf init_file ./
 
