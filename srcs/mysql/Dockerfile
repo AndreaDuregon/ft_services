@@ -6,7 +6,7 @@
 #    By: aduregon <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/28 17:50:56 by aduregon          #+#    #+#              #
-#    Updated: 2021/04/08 15:28:39 by aduregon         ###   ########.fr        #
+#    Updated: 2021/04/09 12:09:20 by aduregon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,13 @@ EXPOSE	3306
 
 RUN		apk add --update
 RUN		apk add mysql mysql-client
+RUN		apk add openrc
 
-COPY	wordpress.sql ./
+COPY	wordpress.sql my.cnf init_file ./
+
 
 RUN     mkdir /run/mysqld
+RUN		mv my.cnf /etc/
 
 COPY    setup.sh ./setup.sh
 RUN		chmod 755 ./setup.sh

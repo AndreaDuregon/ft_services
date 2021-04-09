@@ -1,2 +1,5 @@
-mysql_install_db --user=root --basedir=/usr --datadir=/var/lib/mysql
-mysqld --user=root --skip_networking=0 --bind-address=0.0.0.0 --init-file=/wordpress.sql
+/usr/bin/mysql_install_db --datadir=/var/lib/mysql
+rc-service start mysql
+mysql < wordpress.sql
+rc-service stop mysql
+/usr/bin/mysqld --user=root --init_file=/init_file
