@@ -37,9 +37,10 @@ docker build --tag influxdb-img ./srcs/influxdb  && kubectl apply -f ./srcs/infl
 docker build --tag telegraf-img srcs/telegraf && kubectl apply -f srcs/telegraf.yaml
 docker build --tag grafana-img srcs/grafana && kubectl apply -f srcs/grafana.yaml
 
+grandfinal=`kubectl get po | grep mysql | tr ' ' '\n' | head -n 1`
+kubectl exec $grandfinal -- sh < srcs/mysql/staff.sh 
 # run dahboard
 kubectl proxy
-
 #http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/    
 
 #kubectl exec --stdin --tty mysql -- sh

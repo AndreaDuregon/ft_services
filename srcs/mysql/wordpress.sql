@@ -20,9 +20,11 @@ SET time_zone = "+00:00";
 --
 -- Database: `wordpress`
 --
-
+CREATE DATABASE IF NOT EXISTS wordpress;
+GRANT ALL PRIVILEGES ON wordpress.* TO 'admin'@'%' IDENTIFIED BY 'password';
+FLUSH PRIVILEGES;
 -- --------------------------------------------------------
-
+USE wordpress;
 --
 -- Struttura della tabella `wp_commentmeta`
 --

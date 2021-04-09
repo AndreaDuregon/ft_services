@@ -7,11 +7,11 @@ metadata:
 spec:
   storageClassName: manual
   capacity:
-    storage: 1Gi
+    storage: 3Gi
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/tmp/mysql"
+    path: "/tmp/"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -23,7 +23,7 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 1Gi
+      storage: 3Gi
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -41,7 +41,7 @@ spec:
     spec:
       containers:
       - name: mysql
-        image: mysql-img
+        image: mysql-img:latest
         imagePullPolicy: Never
         ports:
         - name: http
